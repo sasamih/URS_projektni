@@ -4,7 +4,7 @@ all: static_lib stack
 
 .PHONY: static_lib stack
 
-SRCS = ./src/testing.c
+SRCS = ./src/main.c
 LIBS_PATH = -L./libs
 
 static_lib:
@@ -13,4 +13,4 @@ static_lib:
 	ranlib libs/libstack.a
 
 stack:
-	$(CC) $(SRCS) $(LIBS_PATH) -lstack -o stack
+	$(CC) $(SRCS) $(LIBS_PATH) -lstack -o main

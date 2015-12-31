@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-typedef char type;
+typedef uint8_t type;
 
 struct element
 {
@@ -16,3 +16,4 @@ uint8_t push(type element, stack_element** top_of_stack);
 uint8_t pop(type* element, stack_element** top_of_stack);
 uint8_t top(type* element, stack_element* top_of_stack);
 uint8_t dump_stack(stack_element** top_of_stack);
+uint8_t is_empty(stack_element* top_of_stack);

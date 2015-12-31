@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 	// pop(&letter, &stack);
 
 	if (top(&letter, stack) == 1)
-		printf("%s\n", "Nema elemenata na steku!");		
+		printf("%s\n", "Nema elemenata na steku!");	
 
 	return 0;
 }

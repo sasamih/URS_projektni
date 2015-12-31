@@ -19,19 +19,42 @@ uint8_t push(type element, stack_element** top_of_stack)
 
 uint8_t pop(type* element, stack_element** top_of_stack)
 {
-	stack_element* top_element;
-	top_element = (stack_element*) malloc(sizeof(stack_element));
-
-	if (top_element != NULL)
+	if (*top_of_stack != NULL)
 	{
-		top_element = *top_of_stack;
-		*element = top_element->el;
-		*top_of_stack = top_element->next;
-		free(top_element);
-		top_element = NULL;
+		stack_element* top_element;
+		top_element = (stack_element*) malloc(sizeof(stack_element));
 
+		if (top_element != NULL)
+		{
+			top_element = *top_of_stack;
+			*element = top_element->el;
+			*top_of_stack = top_element->next;
+			free(top_element);
+			top_element = NULL;
+
+			return 0;
+		}
+	}	
+	return 1;
+}
+
+uint8_t top(type* element, stack_element* top_of_stack)
+{
+	if (top_of_stack != NULL)
+	{
+		*element = top_of_stack->el;
 		return 0;
 	}
 
 	return 1;
+}
+
+uint8_t dump_stack(stack_element** top_of_stack)
+{
+	while (*top_of_stack != NULL)
+	{
+		type element;
+		pop(&element, top_of_stack);
+	}
+	return 0;
 }

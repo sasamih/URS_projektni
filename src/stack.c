@@ -40,7 +40,7 @@ uint8_t pop(type* element, stack_element** top_of_stack)
 
 uint8_t top(type* element, stack_element* top_of_stack)
 {
-	if (!is_empty(top_of_stack))
+	if (is_empty(top_of_stack))
 	{
 		*element = top_of_stack->el;
 		return 0;
@@ -63,7 +63,7 @@ uint8_t is_empty(stack_element* top_of_stack)
 {
 	if (top_of_stack != NULL)
 	{
-		return 0;
+		return 1;
 	}
-	return 1;
+	return 0;
 }

@@ -33,11 +33,7 @@
 		pokrenuti makefile naredbom make, a zatim pokrenuti izvrsnu datoteku main.
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "stack.h"
-
-#define MAX_SIZE 255
+#include "main.h"
 
 int main(int argc, char* argv[])
 {

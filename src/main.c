@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 		if (')' == formula[i])
 		{
 			uint8_t open_index;
-			if (pop(&open_index, &stack) == 0)
+			if (pop(&open_index, &stack) == NO_ERROR)
 			{
 				printf("Par zagrada na indeksima %d i %d\n", open_index, i);
 			}

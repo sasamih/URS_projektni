@@ -8,4 +8,10 @@
 
 #define MAX_SIZE 255
 
+typedef enum t_Error
+{
+	ERROR = -1,
+	NO_ERROR = 0
+}t_Error;
+
 #endif

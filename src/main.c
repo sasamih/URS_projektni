@@ -35,44 +35,47 @@
 
 #include "main.h"
 
+stack_element* stack = NULL;
+t_Error err;
+
+t_Error checkFormula(char formula[])
+{
+	uint8_t i = 0;
+	for (i = 0; formula[i] != '\0'; i++)
+	{
+		if ('(' == formula[i])
+		{
+			err = push(i, &stack);
+			ASSERT(err, "Nemoguce postaviti element na stek");
+		}
+
+		if (')' == formula[i])
+		{
+			uint8_t open_index;
+			err = pop(&open_index, &stack);
+			ASSERT(err, "Unijeta formula nije regularan matematicki izraz!")
+			printf("Par zagrada na indeksima %d i %d\n", open_index, i);
+		}
+	}
+
+	err = is_empty(stack);
+	ASSERT(err, "Unijeta formula nije regularan matematicki izraz!");
+	dump_stack(&stack);
+
+	return NO_ERROR;
+}
+
 int main(int argc, char* argv[])
 {
-	stack_element* stack = NULL;
+	
 
 	printf("Unesite matematicku formulu: ");
 	char formula[MAX_SIZE];
 	fgets(formula, MAX_SIZE, stdin);
 	printf("Unijeli ste: %s\n",formula);
 
-	uint8_t i = 0;
-	for (i = 0; formula[i] != '\0'; i++)
-	{
-		if ('(' == formula[i])
-		{
-			push(i, &stack);
-		}
-
-		if (')' == formula[i])
-		{
-			uint8_t open_index;
-			if (pop(&open_index, &stack) == NO_ERROR)
-			{
-				printf("Par zagrada na indeksima %d i %d\n", open_index, i);
-			}
-			else
-			{
-				printf("Unijeta formula nije regularan matematicki izraz!\n");
-				return 1;
-			}
-		}
-	}
-
-	if (is_empty(stack))
-	{
-		printf("Unijeta formula nije regularan matematicki izraz!\n");
-		dump_stack(&stack);
-		return 1;
-	}
+	err = checkFormula(formula);
+	ASSERT(err, "Postoji greska u funkciji!")
 
 	return 0;
 }

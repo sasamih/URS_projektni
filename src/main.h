@@ -8,10 +8,17 @@
 
 #define MAX_SIZE 255
 
+#define ASSERT(x,y) if(ERROR == x){ \
+						printf("\n%s\n", y); \
+						return 1; \
+					}
+
 typedef enum t_Error
 {
-	ERROR = -1,
-	NO_ERROR = 0
+	NO_ERROR = 0,
+	ERROR = 1
 }t_Error;
+
+t_Error checkFormula(char formula[]);
 
 #endif

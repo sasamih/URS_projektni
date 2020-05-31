@@ -28,6 +28,14 @@
 		stek nije prazan. Dakle, izraz je regularan ako je analiziran citav niz i 
 		stek ostane prazan na kraju izvrsavanja programa.
 
+		Dodatno je potrebno implementirati kruzni bafer sa svim funkcijama za citanje i pisanje,
+		push, pop, getNumberOfElements, isFull, isEmpty, dumpBuffer. Element bafera je struktura
+		koja sadrzi vrijednost elementa i pokazivac na sljedeci element. U bafer ce se upisivati
+		indeksi pozicija niza na kojima se nalaze otvarajuce i zatvarajuce zagrade.
+
+		Main funkcija na pocetku treba da korisniku pusti da bira hoce li koristiti stek ili 
+		kruzni bafer za analizu unijetog niza.
+
 	Napomena:
 		Za prevodjenje i pokretanje programa je potrebno iz komandne linije
 		pokrenuti makefile naredbom make, a zatim pokrenuti izvrsnu datoteku main.
@@ -68,7 +76,6 @@ t_Error checkFormula(char formula[])
 int main(int argc, char* argv[])
 {
 	
-
 	printf("Unesite matematicku formulu: ");
 	char formula[MAX_SIZE];
 	fgets(formula, MAX_SIZE, stdin);

@@ -56,6 +56,7 @@ t_Error checkFormula(char formula[])
 			err = push(i, &stack);
 			ASSERT(err, "Nemoguce postaviti element na stek");
 		}
+		printf("Test");
 
 		if (')' == formula[i])
 		{
